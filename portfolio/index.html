@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>[Your Name] — Medical Writer & Visual Storyteller</title>
+<meta name="description" content="Portfolio of [Your Name], final-year medical student, medical writer, and visual storyteller.">
+
+<!--
+  ============================================================
+  HOW TO EDIT THIS FILE
+  ============================================================
+  Everything you need to personalize is marked with a comment
+  like the one above this line, or wrapped in [brackets].
+  Search (Ctrl+F / Cmd+F) for "EDIT:" to jump between the
+  spots that need your real details.
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* ---- Design tokens ---- */
+    --paper: #F1EEE6;
+    --paper-dim: #E7E2D6;
+    --ink: #1C1A17;
+    --ink-soft: #504A42;
+    --moss: #5C6B4F;
+    --moss-dim: #98A38B;
+    --oxide: #8A3B2B;
+    --line: rgba(28,26,23,0.14);
+    --line-strong: rgba(28,26,23,0.28);
+
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+
+    --rail-w: 88px;
+    --edge: clamp(20px, 5vw, 64px);
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+  }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a{ color: inherit; }
+
+  /* subtle paper grain, applied once, cheap */
+  body::before{
+    content:"";
+    position: fixed; inset:0;
+    pointer-events: none;
+    opacity: 0.035;
+    z-index: 1;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ============ RAIL NAV ============ */
+  .rail{
+    position: fixed;
+    top:0; left:0; bottom:0;
+    width: var(--rail-w);
+    border-right: 1px solid var(--line);
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-between;
+    padding: 28px 0 22px;
+    z-index: 50;
+    background: var(--paper);
+  }
+  .rail__mark{
+    font-family: var(--display);
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
+    writing-mode: vertical-rl;
+    letter-spacing: 0.02em;
+  }
+  .rail__tabs{
+    display:flex;
+    flex-direction: column;
+    gap: 34px;
+    align-items:center;
+  }
+  .rail__tab{
+    writing-mode: vertical-rl;
+    text-transform: uppercase;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    text-decoration:none;
+    padding: 6px 4px;
+    position: relative;
+    transition: color .2s ease;
+  }
+  .rail__tab::before{
+    content:"";
+    position:absolute;
+    left: 50%; top: -12px;
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--oxide);
+    opacity: 0;
+    transform: translateX(-50%);
+    transition: opacity .2s ease;
+  }
+  .rail__tab:hover, .rail__tab.active{ color: var(--ink); }
+  .rail__tab.active::before{ opacity: 1; }
+  .rail__foot{
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--moss-dim);
+    writing-mode: vertical-rl;
+    letter-spacing: 0.1em;
+  }
+
+  /* ============ LAYOUT ============ */
+  main{
+    margin-left: var(--rail-w);
+    position: relative;
+    z-index: 2;
+  }
+  section{
+    padding: 96px var(--edge) 88px;
+    border-bottom: 1px solid var(--line);
+    max-width: 1180px;
+  }
+  .eyebrow{
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--oxide);
+    display:flex;
+    align-items:center;
+    gap: 10px;
+    margin: 0 0 18px;
+  }
+  .eyebrow::after{
+    content:"";
+    flex:1;
+    height:1px;
+    background: var(--line-strong);
+  }
+
+  /* ============ HERO ============ */
+  .hero{
+    padding-top: 76px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero__tag{
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+    border: 1px solid var(--line-strong);
+    display:inline-block;
+    padding: 5px 12px;
+    margin-bottom: 34px;
+  }
+  h1.hero__name{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(48px, 9vw, 108px);
+    line-height: 0.98;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  h1.hero__name em{
+    font-style: italic;
+    color: var(--moss);
+    font-weight: 400;
+  }
+  .hero__role{
+    font-family: var(--body);
+    font-size: clamp(16px, 2vw, 20px);
+    color: var(--ink-soft);
+    max-width: 640px;
+    margin: 18px 0 44px;
+  }
+  .hero__meta{
+    display:flex;
+    flex-wrap: wrap;
+    gap: 28px 44px;
+    padding-top: 30px;
+    border-top: 1px solid var(--line);
+  }
+  .hero__meta div{ min-width: 140px; }
+  .hero__meta .k{
+    display:block;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--moss-dim);
+    margin-bottom: 6px;
+  }
+  .hero__meta .v{ font-size: 14px; color: var(--ink-soft); }
+
+  /* ============ SECTION HEADS ============ */
+  h2.section__title{
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: clamp(32px, 4.5vw, 52px);
+    margin: 0 0 14px;
+    letter-spacing: -0.01em;
+  }
+  .section__intro{
+    max-width: 620px;
+    color: var(--ink-soft);
+    font-size: 15.5px;
+    margin: 0 0 56px;
+  }
+
+  /* ============ WRITING ============ */
+  .entry{
+    display:grid;
+    grid-template-columns: 90px 1fr auto;
+    gap: 28px;
+    align-items: start;
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    transition: background .25s ease;
+  }
+  .entry:last-child{ border-bottom: 1px solid var(--line); }
+  .entry:hover{ background: rgba(92,107,79,0.05); }
+  .entry__no{
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--moss-dim);
+    padding-top: 6px;
+  }
+  .entry__body h3{
+    font-family: var(--display);
+    font-size: 24px;
+    font-weight: 500;
+    margin: 0 0 10px;
+  }
+  .entry__body p{
+    margin: 0 0 14px;
+    color: var(--ink-soft);
+    font-size: 14.5px;
+    max-width: 560px;
+  }
+  .tag-row{ display:flex; gap:10px; flex-wrap: wrap; }
+  .tag{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px dashed var(--line-strong);
+    padding: 4px 9px;
+    color: var(--ink-soft);
+  }
+  .entry__link{
+    align-self: center;
+    font-family: var(--mono);
+    font-size: 12px;
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 2px;
+    height: fit-content;
+  }
+  .entry__link:hover{ color: var(--oxide); border-color: var(--oxide); }
+
+  /* ============ VISUAL / GALLERY ============ */
+  .gallery{
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 18px;
+  }
+  .plate{
+    position: relative;
+    border: 1px solid var(--line-strong);
+    background: var(--paper-dim);
+    aspect-ratio: 4/5;
+    overflow:hidden;
+    grid-column: span 2;
+  }
+  .plate:nth-child(1){ grid-column: span 4; }
+  .plate:nth-child(3){ grid-column: span 3; }
+  .plate:nth-child(4){ grid-column: span 3; }
+  .plate:nth-child(5){ grid-column: span 4; }
+  .plate__surface{
+    position:absolute; inset:0;
+    background:
+      repeating-linear-gradient(135deg, rgba(28,26,23,0.045) 0 2px, transparent 2px 14px),
+      linear-gradient(160deg, var(--paper-dim), #DEDACB 120%);
+  }
+  .plate__tag{
+    position: absolute;
+    left: 14px; bottom: 14px; right: 14px;
+    display:flex;
+    justify-content: space-between;
+    align-items:flex-end;
+    font-family: var(--mono);
+  }
+  .plate__tag .roman{
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    background: var(--paper);
+    border: 1px solid var(--line-strong);
+    padding: 3px 9px;
+  }
+  .plate__tag .cap{
+    font-size: 10.5px;
+    color: var(--ink-soft);
+    text-align:right;
+    max-width: 60%;
+  }
+  .gallery__note{
+    margin-top: 34px;
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--moss-dim);
+    border-left: 2px solid var(--moss-dim);
+    padding-left: 14px;
+  }
+
+  /* ============ ABOUT ============ */
+  .about{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 64px;
+  }
+  .about__bio p{
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 560px;
+  }
+  .about__bio p:first-of-type{
+    font-family: var(--display);
+    font-size: 22px;
+    color: var(--ink);
+    font-style: italic;
+  }
+  .now-list{ list-style:none; margin: 30px 0 0; padding: 0; }
+  .now-list li{
+    display:grid;
+    grid-template-columns: 70px 1fr;
+    gap: 16px;
+    padding: 14px 0;
+    border-top: 1px solid var(--line);
+    font-size: 14px;
+  }
+  .now-list li:last-child{ border-bottom: 1px solid var(--line); }
+  .now-list .label{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moss-dim);
+    padding-top: 2px;
+  }
+
+  .contact-card{
+    border: 1px solid var(--line-strong);
+    padding: 30px;
+    background: var(--paper-dim);
+    align-self: start;
+  }
+  .contact-card h3{
+    font-family: var(--display);
+    font-size: 22px;
+    margin: 0 0 8px;
+  }
+  .contact-card p{ color: var(--ink-soft); font-size: 14px; margin: 0 0 22px; }
+  .contact-list{ list-style:none; margin:0; padding:0; }
+  .contact-list li{
+    border-top: 1px solid var(--line);
+    padding: 14px 0;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+  }
+  .contact-list li:last-child{ padding-bottom: 0; }
+  .contact-list .l{
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--moss-dim);
+  }
+  .contact-list a{
+    font-size: 14px;
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+  }
+  .contact-list a:hover{ color: var(--oxide); border-color: var(--oxide); }
+
+  footer{
+    margin-left: var(--rail-w);
+    padding: 28px var(--edge) 40px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--moss-dim);
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  footer a{ text-decoration:none; border-bottom: 1px solid var(--moss-dim); }
+
+  /* reveal-on-scroll */
+  .reveal{ opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in{ opacity: 1; transform: translateY(0); }
+
+  /* focus visibility */
+  a:focus-visible, button:focus-visible{
+    outline: 2px solid var(--oxide);
+    outline-offset: 3px;
+  }
+
+  /* ============ MOBILE ============ */
+  @media (max-width: 860px){
+    :root{ --rail-w: 0px; }
+    .rail{
+      position: sticky; top:0;
+      width: 100%; height: auto;
+      flex-direction: row;
+      border-right:none;
+      border-bottom: 1px solid var(--line);
+      padding: 14px var(--edge);
+      justify-content: space-between;
+    }
+    .rail__mark{ writing-mode: horizontal-tb; font-size: 18px; }
+    .rail__tabs{ flex-direction: row; gap: 22px; }
+    .rail__tab{ writing-mode: horizontal-tb; }
+    .rail__tab::before{ left: -10px; top: 50%; transform: translateY(-50%); }
+    .rail__foot{ display:none; }
+    main, footer{ margin-left: 0; }
+    .entry{ grid-template-columns: 1fr; gap: 10px; }
+    .entry__link{ justify-self: start; }
+    .about{ grid-template-columns: 1fr; }
+    .gallery{ grid-template-columns: repeat(2,1fr); }
+    .plate, .plate:nth-child(1), .plate:nth-child(3), .plate:nth-child(4), .plate:nth-child(5){ grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="rail" aria-label="Section navigation">
+  <span class="rail__mark">CS</span>
+  <div class="rail__tabs" id="railTabs">
+    <a class="rail__tab" href="#writing" data-target="writing">Writing</a>
+    <a class="rail__tab" href="#visual" data-target="visual">Visual</a>
+    <a class="rail__tab" href="#about" data-target="about">About</a>
+  </div>
+  <span class="rail__foot">EST. 2026</span> <!-- EDIT: your start year -->
+</nav>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <span class="hero__tag">Case File No. 001 — Open</span>
+    <h1 class="hero__name">C. Swathi<br><em>writes & watches closely.</em></h1>
+    <p class="hero__role">
+      Final-year medical student. I write about the things medicine doesn't
+      always have time to slow down for, and I document the rest — on film,
+      on foot, and occasionally in focus. <!-- EDIT: your one-line positioning -->
+    </p>
+    <div class="hero__meta">
+      <div>
+        <span class="k">Based in</span>
+        <span class="v">[City, Country]</span> <!-- EDIT -->
+      </div>
+      <div>
+        <span class="k">Studying</span>
+        <span class="v">[Institution / MBBS, Final Year]</span> <!-- EDIT -->
+      </div>
+      <div>
+        <span class="k">Currently</span>
+        <span class="v">Writing · Photographing · Learning</span>
+      </div>
+      <div>
+        <span class="k">Contact</span>
+        <span class="v"><a href="#about">see below ↓</a></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WRITING ============ -->
+  <section id="writing">
+    <p class="eyebrow">01 — Writing</p>
+    <h2 class="section__title reveal">Words, mostly about medicine.</h2>
+    <p class="section__intro reveal">
+      Clinical reflections, explainers, and essays written for readers on
+      both sides of the stethoscope. Replace these with your own pieces —
+      each entry below is a placeholder ready for your title, summary, and link.
+    </p>
+
+    <div class="entry reveal">
+      <span class="entry__no">Vol. 01</span>
+      <div class="entry__body">
+        <h3>Why You're Always Tired — 6 Medical Reasons Most People Ignore</h3>
+        <p>Constant exhaustion isn't always about sleep. A look at the overlooked medical causes behind everyday fatigue — from hidden iron deficiency to undiagnosed sleep apnea — with citations from peer-reviewed research throughout.</p>
+        <div class="tag-row">
+          <span class="tag">Health & Medical Blog</span>
+          <span class="tag">Evidence-based</span>
+          <span class="tag">5 min read</span>
+        </div>
+      </div>
+      <a class="entry__link" href="articles/why-youre-always-tired.pdf" target="_blank" rel="noopener">Read piece →</a>
+    </div>
+
+    <div class="entry reveal">
+      <span class="entry__no">Vol. 02</span>
+      <div class="entry__body">
+        <h3>[Article title goes here]</h3>
+        <p>[Summary placeholder. Swap this out for a real abstract of your second published or drafted piece.]</p>
+        <div class="tag-row">
+          <span class="tag">Explainer</span>
+          <span class="tag">[Month Year]</span>
+          <span class="tag">[X min read]</span>
+        </div>
+      </div>
+      <a class="entry__link" href="#" target="_blank" rel="noopener">Read piece →</a>
+    </div>
+
+    <div class="entry reveal">
+      <span class="entry__no">Vol. 03</span>
+      <div class="entry__body">
+        <h3>[Article title goes here]</h3>
+        <p>[Summary placeholder. This is a good spot for a personal essay or a narrative-medicine piece if you have one.]</p>
+        <div class="tag-row">
+          <span class="tag">Essay</span>
+          <span class="tag">[Month Year]</span>
+          <span class="tag">[X min read]</span>
+        </div>
+      </div>
+      <a class="entry__link" href="#" target="_blank" rel="noopener">Read piece →</a>
+    </div>
+  </section>
+
+  <!-- ============ VISUAL ============ -->
+  <section id="visual">
+    <p class="eyebrow">02 — Visual</p>
+    <h2 class="section__title reveal">Things I've pointed a camera at.</h2>
+    <p class="section__intro reveal">
+      Photography and short video, edited on whatever app or laptop was
+      on hand that day. The plates below are placeholders — drop your own
+      images in and keep the same caption style, or remove the labels
+      entirely once real work is in.
+    </p>
+
+    <div class="gallery">
+      <div class="plate reveal">
+        <img src="images/plate-1.jpg" alt="Sunrise and sunset diptych, edited composite" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div class="plate__tag"><span class="roman">Pl. I</span><span class="cap">Sunrise / sunset study — [Location, Month Year]</span></div>
+      </div>
+      <div class="plate reveal">
+        <img src="images/plate-2.jpg" alt="Wide seascape with weathered wooden posts" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div class="plate__tag"><span class="roman">Pl. II</span><span class="cap">Low tide, old moorings — [Location]</span></div>
+      </div>
+      <div class="plate reveal">
+        <img src="images/plate-3.jpg" alt="View through a window toward misty mountains" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div class="plate__tag"><span class="roman">Pl. III</span><span class="cap">Morning mist, from the window — [Location]</span></div>
+      </div>
+      <div class="plate reveal">
+        <img src="images/plate-4.jpg" alt="Palm trees framing the sea at dusk" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div class="plate__tag"><span class="roman">Pl. IV</span><span class="cap">Dusk, framed — [Location]</span></div>
+      </div>
+      <div class="plate reveal">
+        <img src="images/plate-5.jpg" alt="Riverside hut with mountains behind" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div class="plate__tag"><span class="roman">Pl. V</span><span class="cap">By the river — [Location]</span></div>
+      </div>
+      <div class="plate reveal">
+        <img src="images/plate-6.jpg" alt="Coastal sunset over the ocean" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">
+        <div class="plate__tag"><span class="roman">Pl. VI</span><span class="cap">Last light — [Location]</span></div>
+      </div>
+    </div>
+    <p class="gallery__note">Video work in progress — coming soon.</p>
+    <!-- EDIT: swap the alt text and [Location] captions above for the real place/date of each photo -->
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section id="about">
+    <p class="eyebrow">03 — About</p>
+    <h2 class="section__title reveal">A little more context.</h2>
+
+    <div class="about">
+      <div class="about__bio reveal">
+        <p>[One warm, specific opening line about who you are — not a job title, a person.]</p>
+        <p>[Two or three sentences of real bio: where you're studying, what draws you to writing and to medicine, and what you're hoping this portfolio leads to. Keep it conversational — write it the way you'd explain yourself to someone you just met and liked.]</p>
+
+        <ul class="now-list">
+          <li><span class="label">Study</span><span>[Your MBBS program, year, institution]</span></li>
+          <li><span class="label">Write</span><span>Medical essays and explainers, published and in-progress</span></li>
+          <li><span class="label">Shoot</span><span>Photography and short video — still learning the craft, and enjoying that part</span></li>
+          <li><span class="label">Also</span><span>[A hobby or interest, even an unfinished one — it's fine if it's a work in progress]</span></li>
+        </ul>
+      </div>
+
+      <div class="contact-card reveal">
+        <h3>Get in touch</h3>
+        <p>Open to writing opportunities, collaborations, and conversations.</p>
+        <ul class="contact-list">
+          <li><span class="l">Email</span><a href="mailto:you@example.com">you@example.com</a></li>
+          <li><span class="l">LinkedIn</span><a href="#" target="_blank" rel="noopener">/in/yourname</a></li>
+          <li><span class="l">Instagram</span><a href="#" target="_blank" rel="noopener">@yourhandle</a></li>
+          <li><span class="l">CV</span><a href="#" target="_blank" rel="noopener">Download PDF</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© <span id="year"></span> C. Swathi. Built with care.</span>
+  <a href="#top">Back to top ↑</a>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el=> io.observe(el));
+
+  // active tab highlight
+  const tabs = document.querySelectorAll('.rail__tab');
+  const sections = ['writing','visual','about'].map(id=>document.getElementById(id));
+  const tabIo = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        tabs.forEach(t=>t.classList.remove('active'));
+        const match = document.querySelector('.rail__tab[data-target="'+entry.target.id+'"]');
+        if(match) match.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-40% 0px -50% 0px' });
+  sections.forEach(s=> s && tabIo.observe(s));
+</script>
+
+</body>
+</html>
